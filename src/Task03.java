@@ -19,7 +19,7 @@ public class Task03 {
         Scanner num = new Scanner(System.in);
         System.out.println("Введите два числа через пробел: ");
         String math = num.nextLine();
-        System.out.println(math);
+//        System.out.println(math);
         Scanner plus = new Scanner(System.in);
         System.out.println("Введите знак (+, -, / или *), чтобы произвести математическое действие");
         String sign = plus.next();

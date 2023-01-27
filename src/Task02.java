@@ -1,11 +1,11 @@
 /*Вывести все простые числа от 1 до 1000*/
 import java.util.Scanner;
 public class Task02 {
-    static void SimpleNumbers(int number) { // И объясните, пожалуйста, почему цифра 4 проходит?
+    static void SimpleNumbers(int number) { // Объясните, пожалуйста, почему цифра 4 проходит?
         if (number == 0 || number < 0) System.out.println("Это не является натуральным числом");
         System.out.print("2 ");
         int num = 3;
-//        while (num < number){ // Почему в данном случае цикл while не работает? Улетает в бесконечность
+//        while (num < number){ // И почему в данном случае цикл while не работает? Улетает в бесконечность
             for (int i = 2; i < num; i++) {
                 if (num >= number) break;
                 if (num % i == 0){
