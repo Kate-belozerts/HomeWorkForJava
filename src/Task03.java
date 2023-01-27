@@ -2,6 +2,7 @@
 int b; String op (op!=”Stop”); (char != ’b’)
  */
 import java.util.Scanner;
+
 public class Task03 {
     static int Calculator(String a, String b){
         String[] numbers = a.split(" ");
@@ -14,16 +15,23 @@ public class Task03 {
         else return -1;
     }
 
+    static void Endless(){
+        boolean stop = true;
+        while (stop) {
+            Scanner num = new Scanner(System.in);
+            System.out.println("Введите два числа через пробел или stop для выхода: ");
+            String math = num.nextLine();
+            if (math.equals("stop")) break; //Подскажите, как сделать без break? Он вообще не воспринимает изменнеие булевой переменной в теле цикла
+//            System.out.println(math);
+            Scanner plus = new Scanner(System.in);
+            System.out.println("Введите знак (+, -, / или *), чтобы произвести математическое действие");
+            String sign = plus.next();
+            int res = Calculator(math, sign);
+            System.out.println(res);
+        }
+    }
 
     public static void main(String[] args){
-        Scanner num = new Scanner(System.in);
-        System.out.println("Введите два числа через пробел: ");
-        String math = num.nextLine();
-//        System.out.println(math);
-        Scanner plus = new Scanner(System.in);
-        System.out.println("Введите знак (+, -, / или *), чтобы произвести математическое действие");
-        String sign = plus.next();
-        int res = Calculator(math, sign);
-        System.out.println(res);
+        Endless();
     }
 }
