@@ -5,9 +5,10 @@ public class Task02 {
         if (number == 0 || number < 0) System.out.println("Это не является натуральным числом");
         System.out.print("2 ");
         int num = 3;
-//        while (num < number){ // И почему в данном случае цикл while не работает? Улетает в бесконечность
+//        while (num < number){ // И почему в данном случае цикл while не работает? Улетает в бесконечность.
+//        Если num становится больше number - это же условие выхода из цикла...
             for (int i = 2; i < num; i++) {
-                if (num >= number) break;
+                if (num >= number) break; // Пришлось добавить эту строчку вместо while((
                 if (num % i == 0){
                     num++;
                     i = 2;
