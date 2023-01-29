@@ -35,6 +35,7 @@ public class Task05 {
     }
     static public void main(String[] args) throws IOException {
         Scanner s = new Scanner(System.in);
+        System.out.println("Введите размер массива: ");
         int size = s.nextInt();
         int[] array = new int[size];
         Random random = new Random();
