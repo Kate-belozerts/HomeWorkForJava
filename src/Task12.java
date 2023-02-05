@@ -2,6 +2,7 @@ import java.util.LinkedList;
 import java.util.Stack;
 
 /*Пусть дан LinkedList с несколькими элементами. Реализуйте метод, который вернет “перевернутый” список.*/
+
 public class Task12 {
     static public void main(String [] args){
         LinkedList<Integer> lst = new LinkedList<Integer>();
