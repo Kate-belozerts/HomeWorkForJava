@@ -18,7 +18,6 @@ public class Task03 {
         file.close();
     }
 
-
     static int Calculator(String a, String b){
         String[] numbers = a.split(" ");
         int numA = Integer.parseInt(numbers[0]);
@@ -31,8 +30,7 @@ public class Task03 {
     }
 
     static void Endless() throws IOException {
-        boolean stop = true;
-        while (stop) {
+        while (true) {
             Scanner num = new Scanner(System.in);
             System.out.println("Введите два числа через пробел или stop для выхода: ");
             String math = num.nextLine();
