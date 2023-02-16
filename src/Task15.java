@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Task15 {
     public static void main(String[] args){
-        HashMap<String, StringBuilder> telephone = new HashMap<>();
+        HashMap<String, ArrayList<String>> telephone = new HashMap<>();
         Scanner iScanner = new Scanner(System.in);
         String[] data;
 
@@ -16,17 +16,17 @@ public class Task15 {
                     System.out.println("Введите имя и номер телефона через пробел: ");
                     data = iScanner.nextLine().split(" ");
                     String name = data[0].toLowerCase();
+                    String number = data[1];
+                    List<String> items = telephone.get(name);
 
                     if (telephone.containsKey(name)){
-                        StringBuilder temp = new StringBuilder(telephone.get(name) + " ");
-                        for (int i = 1; i < data.length; i++) {
-                            temp.append(data[i]);
-                        }
-                        telephone.remove(name);
-                        telephone.put(name.toLowerCase(), new StringBuilder(temp));
+                        if(!items.contains(number)) items.add(number);
                     }
+
                     else {
-                        telephone.putIfAbsent(name.toLowerCase(), new StringBuilder(data[1]));
+                        ArrayList<String> result = new ArrayList<>();
+                        result.add(number);
+                        telephone.put(name, result);
                     }
                 }
                 case "2" -> {
