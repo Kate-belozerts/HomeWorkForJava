@@ -16,7 +16,7 @@
 
 package Notebook;
 
-public class Notebooks {
+public class Notebooks{
     protected String name;
     protected int memoryRAM;
     protected int volumeSSD;
@@ -26,14 +26,16 @@ public class Notebooks {
     protected int year;
     protected String touchpad;
     protected String backlightKeyboard;
+    protected double price;
 
 
-    public Notebooks(String name, int memoryRAM, int volumeSSD, String color,
+    public Notebooks(String name, int memoryRAM, int volumeSSD, String color, double price,
                      String os, int guarantee, int year, String touchpad, String backlightKeyboard){
         this.name = name;
         this.memoryRAM = memoryRAM;
         this.volumeSSD = volumeSSD;
         this.color = color;
+        this.price = price;
         this.os = os;
         this.guarantee = guarantee;
         this.year = year;
@@ -81,6 +83,15 @@ public class Notebooks {
                 ", guarantee=" + guarantee +
                 ", year=" + year +
                 ", touchpad='" + touchpad + '\'' +
-                ", backlightKeyboard='" + backlightKeyboard + '\'';
+                ", backlightKeyboard='" + backlightKeyboard + '\'' +
+                ", price=" + price;
+    }
+    public int compareTo(Notebooks o){
+        if (this.price > o.price){
+            return -1;
+        }else if (this.price < o.price){
+            return 1;
+        }
+        return 0;
     }
 }

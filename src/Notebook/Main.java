@@ -1,19 +1,20 @@
 package Notebook;
 
+import java.text.Collator;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Notebooks samsung = new Notebooks("Samsung", 16, 512,
-                "White", "Windows11", 2, 2023, "yes", "yes" );
+                "White", 200000, "Windows11", 2, 2023, "yes", "yes" );
         Notebooks apple = new Notebooks("Macbook", 8, 512,
-                "Grey", "MacOS", 1, 2023, "yes", "yes" );
+                "Grey", 300000, "MacOS", 1, 2023, "yes", "yes" );
         Notebooks lg = new Notebooks("LG", 5, 264,
-                "Black", "WindowsXP", 5, 2020, "no", "no" );
+                "Black", 30000,"WindowsXP", 5, 2020, "no", "no" );
         Notebooks asus = new Notebooks("Asus", 8, 512,
-                "Green", "Windows10", 2, 2022, "yes", "no" );
+                "Green", 100000, "Windows10", 2, 2022, "yes", "no" );
         Notebooks honor = new Notebooks("Honor", 4, 128,
-                "Red", "Windows9", 2, 2018, "no", "yes" );
+                "Red", 70000, "Windows9", 2, 2018, "no", "yes" );
 
 //        System.out.println(samsung);
         List<Notebooks> shop = new ArrayList<>();
@@ -22,7 +23,10 @@ public class Main {
         shop.add(lg);
         shop.add(asus);
         shop.add(honor);
+
         menu(shop);
+        SortedByPrice(shop);
+        SortedByName(shop);
     }
 
     static public void menu(List<Notebooks> shop){
@@ -78,5 +82,34 @@ public class Main {
             System.out.println();
         }
         System.out.println();
+    }
+
+    static public void SortedByPrice(List<Notebooks> lst) {
+        System.out.println("\n_______|\nНоутбуки по убыванию цены: \n");
+        lst.sort(Notebooks::compareTo);
+        for (Notebooks e: lst) {
+            System.out.println(e);
+        }
+    }
+
+    static public void SortedByName(List<Notebooks> lst) {
+        TreeSet<String> treeSet = new TreeSet<>();
+
+        for (Notebooks e : lst) {
+            String name = e.getName();
+            treeSet.add(name);
+        }
+        System.out.println("\n_______|\nНоутбуки в алфавитном порядке: \n");
+
+        while (!treeSet.isEmpty()) {
+            try {
+                for (Notebooks n : lst) {
+                    if (n.getName().equals(treeSet.first())) {
+                        System.out.println(n);
+                        treeSet.pollFirst();
+                    }
+                }
+            }catch (Exception e) {System.out.println("Готово)");}
+        }
     }
 }
